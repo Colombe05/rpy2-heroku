@@ -31,7 +31,7 @@ class DiagResource(object):
         py_exact_var = ["gender", "education", "age", "party"]
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
-        if (len(req.params["party"]) == 2):
+   #     if (len(req.params["party"]) == 2):
             robjects.r('''
                            f <- function(id, exact_var, exact_val, session) {
                             
@@ -41,9 +41,9 @@ class DiagResource(object):
                                 seqout <- seqblock(query = FALSE
                                                 , id.vars = "ID"
                                                 , id.vals = id
-                                                , n.tr = 4
-                                                , tr.names = c("likert_C", "likertplus_C", "QV_C", "QVN") 
-                                                , assg.prob = c(4/7, 1/7, 1/7, 1/7)
+                                                , n.tr = 3
+                                                , tr.names = c("Control", "Treatment1", "Treatment2") 
+                                                , assg.prob = c(1/3, 1/3, 1/3)
                                                 , exact.vars = exact_var
                                                 , exact.vals = exact_val
                                                 , file.name = session)
@@ -52,9 +52,9 @@ class DiagResource(object):
                                 seqout <- seqblock(query = FALSE
                                                 , object = session
                                                 , id.vals = id
-                                                , n.tr = 4
-                                                , tr.names = c("likert_C", "likertplus_C", "QV_C", "QVN") 
-                                                , assg.prob = c(4/7, 1/7, 1/7, 1/7)
+                                                , n.tr = 3
+                                                , tr.names = c("Control", "Treatment1", "Treatment2") 
+                                                , assg.prob = c(1/3, 1/3, 1/3)
                                                 , exact.vals = exact_val
                                                 , file.name = session)
                             }
@@ -71,4 +71,4 @@ class DiagResource(object):
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
 
-app.add_route('/test', DiagResource())
+app.add_route('/test567789', DiagResource())
