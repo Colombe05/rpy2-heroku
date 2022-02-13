@@ -31,7 +31,7 @@ class DiagResource(object):
         py_exact_var = ["gender", "education", "age", "party"]
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
-   #     if (len(req.params["party"]) == 2):
+       if (len(req.params["party"]) == 2):
             robjects.r('''
                            f <- function(id, exact_var, exact_val, session) {
                             
