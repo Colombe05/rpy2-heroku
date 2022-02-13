@@ -5,5 +5,5 @@ MarkupSafe==1.1.1
 python-mimeparse==1.6.0
 singledispatch==3.4.0.3
 six==1.11.0
-pandas==0.23.0
+pandas==1.4.1
 rpy2==3.0.5
