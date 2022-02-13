@@ -31,7 +31,7 @@ class DiagResource(object):
         py_exact_var = ["gender", "education", "age", "party"]
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
-       if (len(req.params["party"]) == 2):
+       #if (len(req.params["party"]) == 2):
             robjects.r('''
                            f <- function(id, exact_var, exact_val, session) {
                             
@@ -65,8 +65,8 @@ class DiagResource(object):
             r_f = robjects.r['f']
             out = r_f(cap_id, py_exact_var, py_exact_val, py_session)
             resp.body = 'Treatment=' + str(out[0])
-        else:
-            resp.body = 'Treatment=' + "error: party=" + req.params["party"]
+        #else:
+            #resp.body = 'Treatment=' + "error: party=" + req.params["party"]
         
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
