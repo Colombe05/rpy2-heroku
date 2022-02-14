@@ -1,4 +1,5 @@
 getwd()
+install.packages("devtools")
 require(devtools)
 install_version("blockTools", version = "0.6.2", repos = "http://cran.us.r-project.org")
 #install.packages("blockTools")
