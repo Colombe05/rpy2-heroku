@@ -1,1 +1,1 @@
-web: gunicorn diag:app --log-file -
+web: gunicorn dj_patt_check.wsgi
