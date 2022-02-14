@@ -1,3 +1,4 @@
+getwd()
 install.packages("blockTools")
 require(blockTools)
 
