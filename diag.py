@@ -71,4 +71,4 @@ class DiagResource(object):
 # falcon.API instances are callable WSGI apps
 app = falcon.App()
 
-app.add_route( , DiagResource())
+#app.add_route( , DiagResource())
