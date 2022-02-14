@@ -32,8 +32,7 @@ class DiagResource(object):
         py_exact_var = ["gender", "education", "age", "party"]
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
-     
-            robjects.r('''
+        robjects.r('''
                            f <- function(id, exact_var, exact_val, session) {
                             
                             # the session has not been seen before, then the corresponding file doesn't exist
