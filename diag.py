@@ -69,6 +69,6 @@ class DiagResource(object):
             #resp.body = 'Treatment=' + "error: party=" + req.params["party"]
         
 # falcon.API instances are callable WSGI apps
-app = falcon.API()
+app = falcon.app()
 
 app.add_route( , DiagResource())
