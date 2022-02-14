@@ -33,7 +33,7 @@ class DiagResource(object):
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
         robjects.r('''
-                        f <- function(id, exact_var, exact_val, session) {
+                f <- function(id, exact_var, exact_val, session) {
                         # the session has not been seen before, then the corresponding file doesn't exist
                         # and this must be the first assignment
                         if(!file.exists(session)) {
@@ -57,15 +57,14 @@ class DiagResource(object):
                                                 , exact.vals = exact_val
                                                 , file.name = session)
                         }
-                        seqout$x[seqout$x['ID'] == id , "Tr"]
-                        }
-                       ''')
+                seqout$x[seqout$x['ID'] == id , "Tr"]
+                }
+        ''')
 
         r_f = robjects.r['f']
         out = r_f(cap_id, py_exact_var, py_exact_val, py_session)
         resp.body = 'Treatment=' + str(out[0])
-        
-        
+                
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
 
