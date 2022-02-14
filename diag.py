@@ -33,12 +33,11 @@ class DiagResource(object):
         py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
         
         robjects.r('''
-                           f <- function(id, exact_var, exact_val, session) {
-                            
-                            # the session has not been seen before, then the corresponding file doesn't exist
-                            # and this must be the first assignment
-                            if(!file.exists(session)) {
-                                seqout <- seqblock(query = FALSE
+                        f <- function(id, exact_var, exact_val, session) {
+                        # the session has not been seen before, then the corresponding file doesn't exist
+                        # and this must be the first assignment
+                        if(!file.exists(session)) {
+                            seqout <- seqblock(query = FALSE
                                                 , id.vars = "ID"
                                                 , id.vals = id
                                                 , n.tr = 3
@@ -47,9 +46,9 @@ class DiagResource(object):
                                                 , exact.vars = exact_var
                                                 , exact.vals = exact_val
                                                 , file.name = session)
-                            }
-                            else {
-                                seqout <- seqblock(query = FALSE
+                        }
+                        else {
+                            seqout <- seqblock(query = FALSE
                                                 , object = session
                                                 , id.vals = id
                                                 , n.tr = 3
@@ -57,14 +56,14 @@ class DiagResource(object):
                                                 , assg.prob = c(1/3, 1/3, 1/3)
                                                 , exact.vals = exact_val
                                                 , file.name = session)
-                            }
-                            seqout$x[seqout$x['ID'] == id , "Tr"]
-                            }
-                           ''')
+                        }
+                        seqout$x[seqout$x['ID'] == id , "Tr"]
+                        }
+                       ''')
 
-            r_f = robjects.r['f']
-            out = r_f(cap_id, py_exact_var, py_exact_val, py_session)
-            resp.body = 'Treatment=' + str(out[0])
+        r_f = robjects.r['f']
+        out = r_f(cap_id, py_exact_var, py_exact_val, py_session)
+        resp.body = 'Treatment=' + str(out[0])
         
         
 # falcon.API instances are callable WSGI apps
