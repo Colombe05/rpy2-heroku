@@ -1,5 +1,7 @@
 getwd()
-install.packages("blockTools")
+require(devtools)
+install_version("blockTools", version = "0.6.2", repos = "http://cran.us.r-project.org")
+#install.packages("blockTools")
 require(blockTools)
 
 # Capture important stuff from the API
