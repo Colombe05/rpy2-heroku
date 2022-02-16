@@ -23,14 +23,16 @@ class DiagResource(object):
         
         # capture each of the blocking vars
         cap_gender = req.params["gender"]
+        cap_ethnicity = req.params["ethnicity"]
         cap_education = req.params["education"]
         cap_age = req.params["age"]
+        cap_employment = req.params["employment"]
         cap_party = req.params["party"]
         cap_id = req.params["id"]
         py_session = req.params["session"] + ".RData"
         
-        py_exact_var = ["gender", "education", "age", "party"]
-        py_exact_val = [cap_gender, cap_education, cap_age, cap_party]
+        py_exact_var = ["gender","ethnicity", "education", "age", "employment", "party"]
+        py_exact_val = [cap_gender, cap_ethnicity, cap_education, cap_age, cap_employment, cap_party]
         
         robjects.r('''
                 f <- function(id, exact_var, exact_val, session) {
